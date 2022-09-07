@@ -1,15 +1,10 @@
 <?php
-
-$id= $_GET['id'];
-$conexion= mysqli_connect("localhost", "root", "", "prueba");
-$consulta= "SELECT * FROM usuarios WHERE id = $id";
+$documento= $_GET['id'];
+$conexion= mysqli_connect("localhost", "root", "", "id16455213_secode_qr");
+$consulta= "SELECT * FROM usuario WHERE documento = $documento";
 $resultado = mysqli_query($conexion, $consulta);
 $usuario = mysqli_fetch_assoc($resultado);
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="es-MX">
 <head>
@@ -33,20 +28,28 @@ $usuario = mysqli_fetch_assoc($resultado);
                             <br>
                             <h3 class="text-center">Editar usuario</h3>
                             <div class="form-group">
-                                <label for="id" class="form-label">Identificacion</label><br>
-                                <input type="text" id=" id" name="id" class="form-control" value ="<?php echo $usuario["id"]; ?>"required>
+                                <label for="documento" class="form-label">Documento</label><br>
+                                <input type="text" id="documento" name="documento" class="form-control" value ="<?php echo $usuario["documento"]; ?>"required>
                             </div>
                             <div class="form-group">
-                                <label for="Nombres">Nombres</label><br>
-                                <input type="text" id="Nombres" name="Nombres" class="form-control"  placeholder="Nombres de usuario" value ="<?php echo $usuario["Nombres"]; ?>"required>
+                                <label for="Nombre">Nombre completos</label><br>
+                                <input type="text" id="Nombre" name="Nombre" class="form-control"  placeholder="Nombres de usuario" value ="<?php echo $usuario["Nombre"]; ?>"required>
                             </div>
                             <div class="form-group">
-                                <label for="Apellidos" class="form-label">Apellidos</label><br>
-                                <input type="text" id="Apellidos" name="Apellidos" class="form-control" placeholder="Apellidos usuario" value ="<?php echo $usuario["Apellidos"]; ?>"required>
+                                <label for="Direccion" class="form-label">Direccion</label><br>
+                                <input type="text" id="Direccion" name="Direccion" class="form-control" placeholder="Direccion" value ="<?php echo $usuario["Direccion"]; ?>"required>
                             </div>
                             <div class="form-group">
                                 <label for="Genero" class="form-label">Genero</label><br>
                                 <input type="text" id="Genero" name="Genero" class="form-control" placeholder="Genero usuario" value ="<?php echo $usuario["Genero"]; ?>"required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Correo" class="form-label">Correo</label><br>
+                                <input type="email" id="Correo" name="Correo" class="form-control" placeholder="Correo usuario" value ="<?php echo $usuario["Correo"]; ?>"required>
+                            </div>
+                            <div class="form-group">
+                                <label for="FechaNacimiento" class="form-label">FechaNacimiento</label><br>
+                                <input type="date" id="FechaNacimiento" name="FechaNacimiento" class="form-control" placeholder="Fecha de nacimiento usuario" value ="<?php echo $usuario["FechaNacimiento"]; ?>"required>
                             </div>
                             <div class="form-group">
                                 <label for="Telefono" class="form-label">Telefono</label><br>

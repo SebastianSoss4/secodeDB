@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/fontawesome.css">
     <script src="https://kit.fontawesome.com/9165abed33.js" crossorigin="anonymous"></script>
 
-    <title>Barra Navegacion</title>
+    <title>Tablero Gestión</title>
 </head>
 
 <body style="background-color:#f2f7ff">
@@ -64,32 +64,34 @@
         </ul>
     </nav>
     <main>
-        <img src="../img/SECODE_QR.png" style="margin-left:850px;=">
-    <hr class="hr">
+        <img src="../img/SECODE_QR.png" style="margin-left:850px;">
+    <hr class="hr" style="margin-left:120px;">
 
-    <h1 style="margin-left:120px; margin-top:30px; color:black;">Usuarios:</h1>
+    <h1 style="margin-left:190px; margin-top:80px; color:black;">Usuarios:</h1>
         <br>
-        <div style="margin-left:300px; margin-top:-70px">
+        <div style="margin-left:390px; margin-top:-70px">
             <a  class="btn btn-info" href="../views/registraru.php">Registrar</a>
         </div>
         <br>
     <div class="col-8">
     <table class= "table table-striped table-light align-text-top " id = "table_id">
     <thead>
-            <tr style="color:#00000;">
-                <th>Identificación</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>Género</th>
+            <tr style="color:black;">
+                <th>N°Documento</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Genero</th>
+                <th>Correo</th>
+                <th>FechaNacimiento</th>
                 <th>Telefono</th>
-                <th>Acciones</th>
+             <th>Modificar</th>
+
             </tr>
     </thead>
     <tbody>
         <?php
-
-$conexion=mysqli_connect("localhost","root","","prueba");
-$SQL="SELECT *FROM usuarios";
+$conexion=mysqli_connect("localhost","root","","id16455213_secode_qr");
+$SQL="SELECT * FROM usuario";
 $dato = mysqli_query($conexion,$SQL);
 
 if($dato -> num_rows >0){
@@ -97,10 +99,12 @@ if($dato -> num_rows >0){
         ?>
 
 <tr>
-    <td><?php echo $fila['id']; ?></td>
-    <td><?php echo $fila['Nombres']; ?></td>
-    <td><?php echo $fila['Apellidos']; ?></td>
+    <td><?php echo $fila['documento']; ?></td>
+    <td><?php echo $fila['Nombre']; ?></td>
+    <td><?php echo $fila['Direccion']; ?></td>
     <td><?php echo $fila['Genero']; ?></td>
+    <td><?php echo $fila['Correo']; ?></td>
+    <td><?php echo $fila['FechaNacimiento']; ?></td>
     <td><?php echo $fila['Telefono']; ?></td>
 
 
@@ -108,10 +112,10 @@ if($dato -> num_rows >0){
     <td>
 
 
-<a class="btn btn-info" href="editar.php?id=<?php echo $fila['id']?> ">
+<a class="btn btn-info" href="editar.php?id=<?php echo $fila['documento']?> ">
 <i class="fa fa-edit"></i> </a>
 
-  <a class="btn btn-danger"  href="eliminar.php?id=<?php echo $fila['id']?>">
+  <a class="btn btn-danger"  href="eliminar.php?id=<?php echo $fila['documento']?>">
 <i class="fa fa-trash"></i></a>
 
 </td>
@@ -153,16 +157,16 @@ if($dato -> num_rows >0){
 margin-top:-70px;
 }
 .table{
-    margin-left:120px;
+    margin-left:center;
     margin-top:20px;
 }
 
 .hr{
-    width:100%;
-    background-color:#18d8e6;
+    width:80%;
+    background-color:#530046;
     margin-top:10px;
-    border:2px solid;
-    border-color:#18d8e6;
+    border:1px solid;
+    border-color:#530046;
 }
 </style>
 

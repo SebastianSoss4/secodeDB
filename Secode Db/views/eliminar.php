@@ -20,8 +20,8 @@
         <div class="col-sm-6">
             <form action="../includes/funcion.php" method="POST">
                 <input type="hidden" name="accion" value="eliminar_registro">
-                <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-                <input type="submit" name="" value="Eliminar" class= " btn btn-danger">
+                <input type="hidden" name="documento" value="<?php echo $_GET['id'];?>">
+                <input type="submit" name="" value="Eliminar" class= "btn btn-danger">
                 <a href="tablero.php" class="btn btn-success">Cancelar</a>
 
                                

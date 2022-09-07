@@ -11,21 +11,17 @@ if (isset($_POST['accion'])){
             case 'eliminar_registro':
             eliminar_registro();
 
-            break;
-
-            case 'acceso_user':
-            acceso_user();
-            break;         
+            break;        
 
     }
 }
 
 
 function editar_registro() {
-    $conexion = mysqli_connect("localhost","root","","prueba");
+    $conexion = mysqli_connect("localhost","root","","id16455213_secode_qr");
     extract($_POST);
-    $consulta="UPDATE usuarios SET id = '$id', Nombres = '$Nombres', Apellidos = '$Apellidos',
-    Genero ='$Genero', Telefono = '$Telefono' WHERE id = '$id' ";
+    $consulta="UPDATE usuario SET documento = '$documento', Nombre = '$Nombre', Direccion = '$Direccion',
+    Genero ='$Genero', Correo = '$Correo' , FechaNacimiento = '$FechaNacimiento' , Telefono = '$Telefono' WHERE documento = '$documento'";
 
     mysqli_query($conexion, $consulta);
     header('Location: ../views/tablero.php');
@@ -33,13 +29,12 @@ function editar_registro() {
 }
 
 function eliminar_registro() {
-    $conexion = mysqli_connect("localhost","root","","prueba");
+    $conexion = mysqli_connect("localhost","root","","id16455213_secode_qr");
     extract($_POST);
-    $id = $_POST['id'];
-    $consulta= "DELETE FROM usuarios WHERE id= $id ";
-
+    $documento= $_POST['documento'];
+    $consulta= "DELETE FROM usuario WHERE documento= $documento";
     mysqli_query($conexion, $consulta);
 
-    header('Location:../views/tablero.php');
+    header('Location: ../views/tablero.php');
 
 }
