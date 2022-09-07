@@ -6665,6 +6665,7 @@ textarea.form-control-lg {
 
 .align-text-top {
   vertical-align: text-top !important;
+  margin-left:100px;
 }
 
 .float-start {
